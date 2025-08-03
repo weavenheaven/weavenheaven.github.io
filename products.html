@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - WeavenHeaven Lace Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>WeavenHeaven</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link active">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Lace Collection</h1>
+            <p>Discover our complete collection of handcrafted lace and elegant designs</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="dresses">Lace Dresses</button>
+                <button class="filter-btn" data-category="tops">Lace Tops</button>
+                <button class="filter-btn" data-category="accessories">Lace Accessories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Lace Dresses -->
+            <div class="product-category" id="dresses">
+                <h2>Lace Dresses</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=300&h=300&fit=crop" alt="Elegant Lace Dress">
+                        <h3>Elegant Lace Dress</h3>
+                        <p class="description">Handcrafted with finest lace detailing</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Elegant Lace Dress - Handcrafted with finest lace detailing')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop" alt="Floral Lace Dress">
+                        <h3>Floral Lace Dress</h3>
+                        <p class="description">Beautiful floral lace pattern design</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Floral Lace Dress - Beautiful floral lace pattern design')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop" alt="Vintage Lace Dress">
+                        <h3>Vintage Lace Dress</h3>
+                        <p class="description">Classic vintage lace with modern elegance</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Vintage Lace Dress - Classic vintage lace with modern elegance')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop" alt="Wedding Lace Dress">
+                        <h3>Wedding Lace Dress</h3>
+                        <p class="description">Exquisite lace for your special day</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Wedding Lace Dress - Exquisite lace for your special day')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop" alt="Evening Lace Dress">
+                        <h3>Evening Lace Dress</h3>
+                        <p class="description">Sophisticated lace for evening events</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Evening Lace Dress - Sophisticated lace for evening events')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="dresses">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop" alt="Casual Lace Dress">
+                        <h3>Casual Lace Dress</h3>
+                        <p class="description">Comfortable lace for everyday elegance</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Casual Lace Dress - Comfortable lace for everyday elegance')">Enquiry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lace Tops -->
+            <div class="product-category" id="tops">
+                <h2>Lace Tops</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop" alt="Delicate Lace Top">
+                        <h3>Delicate Lace Top</h3>
+                        <p class="description">Intricate lace pattern with elegant design</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Delicate Lace Top - Intricate lace pattern with elegant design')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop" alt="Lace Blouse">
+                        <h3>Lace Blouse</h3>
+                        <p class="description">Professional lace blouse for office wear</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Blouse - Professional lace blouse for office wear')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=300&fit=crop" alt="Lace Crop Top">
+                        <h3>Lace Crop Top</h3>
+                        <p class="description">Trendy lace crop top for modern style</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Crop Top - Trendy lace crop top for modern style')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop" alt="Lace Tank Top">
+                        <h3>Lace Tank Top</h3>
+                        <p class="description">Comfortable lace tank for summer days</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Tank Top - Comfortable lace tank for summer days')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop" alt="Lace Shirt">
+                        <h3>Lace Shirt</h3>
+                        <p class="description">Elegant lace shirt for formal occasions</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Shirt - Elegant lace shirt for formal occasions')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="tops">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=300&h=300&fit=crop" alt="Lace Sweater">
+                        <h3>Lace Sweater</h3>
+                        <p class="description">Warm lace sweater for cold weather</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Sweater - Warm lace sweater for cold weather')">Enquiry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lace Accessories -->
+            <div class="product-category" id="accessories">
+                <h2>Lace Accessories</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=300&fit=crop" alt="Lace Scarf">
+                        <h3>Lace Scarf</h3>
+                        <p class="description">Beautiful handwoven lace scarf</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Scarf - Beautiful handwoven lace scarf')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop" alt="Lace Gloves">
+                        <h3>Lace Gloves</h3>
+                        <p class="description">Elegant lace gloves for special occasions</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Gloves - Elegant lace gloves for special occasions')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop" alt="Lace Handkerchief">
+                        <h3>Lace Handkerchief</h3>
+                        <p class="description">Delicate lace handkerchief for elegance</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Handkerchief - Delicate lace handkerchief for elegance')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="Lace Bag">
+                        <h3>Lace Bag</h3>
+                        <p class="description">Stylish lace bag for everyday use</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Bag - Stylish lace bag for everyday use')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=300&h=300&fit=crop" alt="Lace Headband">
+                        <h3>Lace Headband</h3>
+                        <p class="description">Elegant lace headband for hair styling</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Headband - Elegant lace headband for hair styling')">Enquiry</button>
+                    </div>
+                    <div class="product-card" data-category="accessories">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop" alt="Lace Jewelry">
+                        <h3>Lace Jewelry</h3>
+                        <p class="description">Unique lace jewelry pieces</p>
+                        <button class="enquiry-btn" onclick="openWhatsApp('Lace Jewelry - Unique lace jewelry pieces')">Enquiry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WeavenHeaven</h3>
+                    <p>Your one-stop destination for beautiful lace and elegant fashion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@weavenheaven.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Lace St, Elegance City</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WeavenHeaven Lace Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
