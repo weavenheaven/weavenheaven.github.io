@@ -1,4 +1,4 @@
-# WeavenHeaven Lace Store - Fashion Clothing Website
+# Weaven Heaven Lace Store - Fashion Clothing Website
 
 A modern, responsive HTML website for a lace clothing store with WhatsApp integration for customer enquiries.
 
@@ -45,7 +45,7 @@ A modern, responsive HTML website for a lace clothing store with WhatsApp integr
 ## 📁 File Structure
 
 ```
-WeavenHeaven/
+Weaven Heaven/
 ├── index.html              # Home page
 ├── products.html           # Products page with categories
 ├── about.html              # About us page
@@ -147,7 +147,7 @@ Product Name - Beautiful description of the lace product
 ### Contact Form Integration
 When users submit the contact form, it opens WhatsApp with:
 ```
-New Contact Form Submission - WeavenHeaven Lace Store:
+New Contact Form Submission - Weaven Heaven Lace Store:
 
 Name: [User's Name]
 Email: [User's Email]

@@ -16,16 +16,368 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
 // WhatsApp Integration
 function openWhatsApp(message) {
     // Replace this phone number with your actual WhatsApp number
-    const phoneNumber = '+1234567890';
+    const phoneNumber = '+919213388095';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
+// Product Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all product sliders
+    const productSliders = document.querySelectorAll('.product-slider');
+    
+    productSliders.forEach((slider, sliderIndex) => {
+        const sliderTrack = slider.querySelector('.slider-track');
+        const slides = slider.querySelectorAll('.slide');
+        const prevBtn = slider.querySelector('.prev-btn');
+        const nextBtn = slider.querySelector('.next-btn');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        // Create dots for this slider
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = slider.querySelectorAll('.dot');
+
+        // Function to go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        // Function to update slider
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Next slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        // Previous slide
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        // Event listeners for navigation buttons
+        if (prevBtn) prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+        });
+        if (nextBtn) nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+        });
+
+        // Auto-play slider
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Pause auto-play on hover
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        slider.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    nextSlide();
+                } else {
+                    // Swipe right - previous slide
+                    prevSlide();
+                }
+            }
+        }
+    });
+});
+
+// Image Slider Functionality (for homepage)
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.slider-dots');
+    
+    if (!sliderTrack) return; // Only run for homepage slider
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    // Function to go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+    }
+
+    // Function to update slider
+    function updateSlider() {
+        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    // Next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    // Previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    }
+
+    // Event listeners for navigation buttons
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    // Auto-play slider
+    function startAutoPlay() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(slideInterval);
+    }
+
+    // Start auto-play
+    startAutoPlay();
+
+    // Pause auto-play on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+        sliderContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+});
+
+// Zoom Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomModalImage = document.getElementById('zoomModalImage');
+    const zoomClose = document.querySelector('.zoom-close');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const resetZoomBtn = document.getElementById('resetZoom');
+    
+    let currentZoom = 1;
+    const zoomStep = 0.2;
+    const maxZoom = 3;
+    const minZoom = 0.5;
+
+    // Open zoom modal for product images
+    document.querySelectorAll('.product-slider .slide img').forEach(img => {
+        img.addEventListener('click', function() {
+            zoomModalImage.src = this.src;
+            zoomModalImage.alt = this.alt;
+            zoomModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            currentZoom = 1;
+            updateZoom();
+        });
+    });
+
+    // Open zoom modal for homepage slider images
+    document.querySelectorAll('.slide-image-container').forEach(container => {
+        container.addEventListener('click', function() {
+            const image = this.querySelector('.slide-image');
+            zoomModalImage.src = image.src;
+            zoomModalImage.alt = image.alt;
+            zoomModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            currentZoom = 1;
+            updateZoom();
+        });
+    });
+
+    // Close zoom modal
+    zoomClose.addEventListener('click', closeZoomModal);
+    zoomModal.addEventListener('click', function(e) {
+        if (e.target === zoomModal) {
+            closeZoomModal();
+        }
+    });
+
+    function closeZoomModal() {
+        zoomModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        currentZoom = 1;
+        updateZoom();
+    }
+
+    // Zoom controls
+    zoomInBtn.addEventListener('click', () => {
+        if (currentZoom < maxZoom) {
+            currentZoom += zoomStep;
+            updateZoom();
+        }
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+        if (currentZoom > minZoom) {
+            currentZoom -= zoomStep;
+            updateZoom();
+        }
+    });
+
+    resetZoomBtn.addEventListener('click', () => {
+        currentZoom = 1;
+        updateZoom();
+    });
+
+    function updateZoom() {
+        zoomModalImage.style.transform = `scale(${currentZoom})`;
+    }
+
+    // Keyboard controls for zoom
+    document.addEventListener('keydown', (e) => {
+        if (zoomModal.style.display === 'block') {
+            if (e.key === 'Escape') {
+                closeZoomModal();
+            } else if (e.key === '+' || e.key === '=') {
+                e.preventDefault();
+                if (currentZoom < maxZoom) {
+                    currentZoom += zoomStep;
+                    updateZoom();
+                }
+            } else if (e.key === '-') {
+                e.preventDefault();
+                if (currentZoom > minZoom) {
+                    currentZoom -= zoomStep;
+                    updateZoom();
+                }
+            } else if (e.key === '0') {
+                e.preventDefault();
+                currentZoom = 1;
+                updateZoom();
+            }
+        }
+    });
+
+    // Mouse wheel zoom
+    zoomModal.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            // Zoom in
+            if (currentZoom < maxZoom) {
+                currentZoom += zoomStep;
+                updateZoom();
+            }
+        } else {
+            // Zoom out
+            if (currentZoom > minZoom) {
+                currentZoom -= zoomStep;
+                updateZoom();
+            }
+        }
+    });
+});
+
 // Product Filtering
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
+
+    // Function to count products in each category
+    function countProductsByCategory() {
+        const categoryCounts = {};
+        productCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+        });
+        return categoryCounts;
+    }
+
+    // Function to hide/show filter buttons based on product count
+    function updateFilterButtons() {
+        const categoryCounts = countProductsByCategory();
+        
+        filterButtons.forEach(button => {
+            const category = button.getAttribute('data-category');
+            if (category === 'all') {
+                // Always show "All Products" button
+                button.style.display = 'block';
+            } else {
+                // Hide button if category has no products
+                if (categoryCounts[category] && categoryCounts[category] > 0) {
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Initialize filter buttons visibility
+    updateFilterButtons();
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -65,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = formData.get('message');
             
             // Create WhatsApp message
-            const whatsappMessage = `New Contact Form Submission - WeavenHeaven Lace Store:
+            const whatsappMessage = `New Contact Form Submission - Weaven Heaven Lace Store:
             
 Name: ${name}
 Email: ${email}
@@ -253,9 +605,9 @@ function searchProducts(query) {
     
     products.forEach(product => {
         const title = product.querySelector('h3').textContent.toLowerCase();
-        const price = product.querySelector('.price').textContent.toLowerCase();
+        const description = product.querySelector('.description').textContent.toLowerCase();
         
-        if (title.includes(searchTerm) || price.includes(searchTerm)) {
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
             product.style.display = 'block';
         } else {
             product.style.display = 'none';
